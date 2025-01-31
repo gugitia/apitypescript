@@ -12,4 +12,20 @@ export class userRepository {
       },
     });
   }
+
+  static async getUserByEmail(email: string) {
+    return prisma.cliente.findUnique({
+      where: { email },
+    });
+  }
+
+  static async getUsersList() {
+    return prisma.cliente.findMany();
+  }
+
+  static async getUserById(id: string) {
+    return prisma.cliente.findUnique({
+      where: { id },
+    });
+  }
 }
